@@ -4,11 +4,13 @@ import './App.css';
 import { Provider } from 'react-redux'
 import Search from './containers/Search'
 import configureStore from './store'
+import { getUsers } from './actions'
 
 const store = configureStore();
 
 class App extends Component {
   render() {
+    getUsers('Matias')
     return (
       <Provider store={store}>
         <div className="App">
