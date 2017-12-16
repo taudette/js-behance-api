@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import fetchJsonpJsonp from 'fetchJsonp-jsonp' //use to avoid cors issues
+import fetchJsonp from 'fetch-jsonp' //use to avoid cors issues
 
 const clientId = 'Xz1atLQVuTxixwJj6PtgchWdylAz8c1e'
 const URL = 'https://api.behance.net/v2'
@@ -8,7 +8,7 @@ const URL = 'https://api.behance.net/v2'
 const recieveUsers = (data) => {
   return {
     type: types.GET_USERS,
-    data: data
+    data: data.users
   }
 }
 
@@ -53,7 +53,7 @@ export const getUsers = (search) => {
   const url = `${URL}/users?client_id=${clientId}&q=${search}`
   return (dispatch) => {
     dispatch(recieveFollowers('tyedsy'))
-    fetchJsonpJsonp(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
