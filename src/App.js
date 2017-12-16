@@ -15,12 +15,14 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <div className="App">
             <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">JS Behance API App</h1>
+              <Link to="/">
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1 className="App-title">JS Behance API App</h1>
+              </Link>
             </header>
             <main>
               <Route exact path="/" component={Home} />
-              <Route exact path="/user" component={UserProfile} />
+              <Route exact path="/user/:userId" component={UserProfile} />
             </main>
           </div>
         </ConnectedRouter>
