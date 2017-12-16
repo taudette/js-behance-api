@@ -4,10 +4,9 @@ import UsersComponent from '../../components/Users'
 
 const UsersContainer = (props) => {
   return (
-
     <div>Users container
       { props.users &&
-        <UsersComponent users={props.users}/>
+        <UsersComponent users={props.users} />
       }
     </div>
   )
@@ -19,8 +18,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
+export default connect(mapStateToProps, null)(UsersContainer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+

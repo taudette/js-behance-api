@@ -6,7 +6,6 @@ const URL = 'https://api.behance.net/v2'
 //grab userId from initial request to pass into the rest
 
 const recieveUsers = (data) => {
-  console.log(data)
   return {
     type: types.GET_USERS,
     data: data.users
@@ -51,7 +50,6 @@ const recieveFollowing = (data) => {
 
 //add loaders
 export const getUsers = (search) => {
-  console.log('search')
   const url = `${URL}/users?client_id=${clientId}&q=${search}`
   return (dispatch) => {
     dispatch(recieveFollowers('tyedsy'))
