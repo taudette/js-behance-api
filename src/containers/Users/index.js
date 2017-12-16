@@ -7,7 +7,7 @@ const UsersContainer = (props) => {
 
     <div>Users container
       { props.users &&
-      <UsersComponent users={props.users}/>
+        <UsersComponent users={props.users}/>
       }
     </div>
   )

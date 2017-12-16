@@ -1,17 +1,33 @@
-import { compose, createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
+import thunk from 'redux-thunk'
+import createHistory from 'history/createBrowserHistory'
 import reducer from './reducers'
 
-const createAppStore = compose(
-  applyMiddleware(thunkMiddleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)(createStore);
+export const history = createHistory()
 
-export default function configureStore(initialState){
-  const store = createAppStore(reducer, initialState);
-  return store;
-};
+const initialState = {}
+const enhancers = []
+const middleware = [
+  thunk,
+  routerMiddleware(history)
+]
 
+if (process.env.NODE_ENV === 'development') {
+  const devToolsExtension = window.devToolsExtension
 
+  if (typeof devToolsExtension === 'function') {
+    enhancers.push(devToolsExtension())
+  }
+}
 
+const composedEnhancers = compose(
+  applyMiddleware(...middleware),
+  ...enhancers
+)
 
+export default createStore(
+  reducer,
+  initialState,
+  composedEnhancers
+)
