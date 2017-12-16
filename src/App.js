@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux'
-import Search from './containers/Search'
+import Home from './containers/Home'
 import configureStore from './store'
 
 const store = configureStore();
@@ -16,7 +16,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">JS Behance API App</h1>
           </header>
-          <Search />
+          <Home />
         </div>
       </Provider>
     );

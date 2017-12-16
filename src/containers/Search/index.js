@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     search: (e) => {
       e.preventDefault()
       let input = e.target.elements.input.value
-       dispatch(getUsers(input))
+      dispatch(getUsers(input))
     }
   }
 }
