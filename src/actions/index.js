@@ -13,37 +13,42 @@ const recieveUsers = (data) => {
 }
 
 const recieveUser = (data) => {
+
   return {
     type: types.GET_USER,
-    data: data
+    data: data.user
   }
 }
 
 const recieveProjects = (data) => {
+  console.log(data)
   return {
     type: types.GET_PROJECTS,
-    data: data
+    data: data.projects
   }
 }
 
 const recieveExperience = (data) => {
+  console.log(data)
   return {
     type: types.GET_EXPERIENCE,
-    data: data
+    data: data.work_experience
   }
 }
 
 const recieveFollowers = (data) => {
+  console.log(data)
   return {
     type: types.GET_FOLLOWERS,
-    data: data
+    data: data.followers
   }
 }
 
 const recieveFollowing = (data) => {
+  console.log(data)
   return {
     type: types.GET_FOLLOWING,
-    data: data
+    data: data.following
   }
 }
 
@@ -87,7 +92,7 @@ export const getUser = (userId) => {
 }
 
 export const getProjects = (userId) => {
-  const url = `${URL}?q=${userId}/projects?client_id=${clientId}`
+  const url = `${URL}/projects?q=${userId}&client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -105,7 +110,7 @@ export const getProjects = (userId) => {
 }
 
 export const getExperience = (userId) => {
-  const url = `${URL}/${userId}/work_experience?client_id=${clientId}`
+  const url = `${URL}/users/${userId}/work_experience?client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -123,7 +128,8 @@ export const getExperience = (userId) => {
 }
 
 export const getFollowers = (userId) => {
-  const url = `${URL}/${userId}/followers?client_id=${clientId}`
+  const url = `${URL}/users/${userId}/followers?client_id=${clientId}`
+  console.log(url)
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -141,7 +147,7 @@ export const getFollowers = (userId) => {
 }
 
 export const getFollowing = (userId) => {
-  const url = `${URL}/${userId}/following?client_id=${clientId}`
+  const url = `${URL}/users/${userId}/following?client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {

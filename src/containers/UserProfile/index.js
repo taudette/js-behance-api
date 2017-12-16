@@ -5,8 +5,13 @@ import { getUser, getExperience, getFollowers, getFollowing, getProjects } from 
 class UserProfileContainer extends React.Component {
   componentDidMount() {
     const userId = this.props.match.params.userId
-    console.log(userId)
+    this.props.getUserInfo(userId)
+    this.props.getProjects(userId)
+    this.props.getExperience(userId)
+    this.props.getFollowers(userId)
+    this.props.getFollowing(userId)
   }
+  
   render() {
     return (
       <div>
@@ -28,11 +33,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserInfo: (id) => dispatch(getUser(id)),
-    getProjects: (id) => dispatch(getProjects(id)),
-    getExperience: (id) => dispatch(getExperience(id)),
-    getFollowers: (id) => dispatch(getFollowers(id)),
-    getFollowing: (id) => dispatch(getFollowing(id))
+    getUserInfo: (userId) => dispatch(getUser(userId)),
+    getProjects: (userId) => dispatch(getProjects(userId)),
+    getExperience: (userId) => dispatch(getExperience(userId)),
+    getFollowers: (userId) => dispatch(getFollowers(userId)),
+    getFollowing: (userId) => dispatch(getFollowing(userId))
   }
 }
 
