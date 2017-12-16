@@ -1,7 +1,8 @@
 import * as types from './actionTypes';
+import fetchJsonpJsonp from 'fetchJsonp-jsonp' //use to avoid cors issues
 
 const clientId = 'Xz1atLQVuTxixwJj6PtgchWdylAz8c1e'
-const URL = 'https://api.behance.net/v2/users'
+const URL = 'https://api.behance.net/v2'
 //grab userId from initial request to pass into the rest
 
 const recieveUsers = (data) => {
@@ -46,11 +47,13 @@ const recieveFollowing = (data) => {
   }
 }
 
+
 //add loaders
 export const getUsers = (search) => {
-  const url = `${URL}?q=${search}&client_id=${clientId}`
+  const url = `${URL}/users?client_id=${clientId}&q=${search}`
   return (dispatch) => {
-    fetch(url)
+    dispatch(recieveFollowers('tyedsy'))
+    fetchJsonpJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
@@ -66,9 +69,9 @@ export const getUsers = (search) => {
 }
 
 export const getUser = (userId) => {
-  const url = `${URL}?q=${userId}?client_id=${clientId}`
+  const url = `${URL}/users/${userId}?client_id=${clientId}`
   return (dispatch) => {
-    fetch(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
@@ -86,7 +89,7 @@ export const getUser = (userId) => {
 export const getProjects = (userId) => {
   const url = `${URL}?q=${userId}/projects?client_id=${clientId}`
   return (dispatch) => {
-    fetch(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
@@ -104,7 +107,7 @@ export const getProjects = (userId) => {
 export const getExperience = (userId) => {
   const url = `${URL}/${userId}/work_experience?client_id=${clientId}`
   return (dispatch) => {
-    fetch(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
@@ -122,7 +125,7 @@ export const getExperience = (userId) => {
 export const getFollowers = (userId) => {
   const url = `${URL}/${userId}/followers?client_id=${clientId}`
   return (dispatch) => {
-    fetch(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)
@@ -140,7 +143,7 @@ export const getFollowers = (userId) => {
 export const getFollowing = (userId) => {
   const url = `${URL}/${userId}/following?client_id=${clientId}`
   return (dispatch) => {
-    fetch(url)
+    fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
           throw Error(resp.statusText)

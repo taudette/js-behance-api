@@ -7,10 +7,12 @@ import configureStore from './store'
 import { getUsers } from './actions'
 
 const store = configureStore();
-
+const testUsers = () => {
+  store.dispatch(getUsers('Matias'))
+}
 class App extends Component {
   render() {
-    getUsers('Matias')
+    testUsers()
     return (
       <Provider store={store}>
         <div className="App">

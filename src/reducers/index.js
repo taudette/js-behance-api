@@ -1,4 +1,4 @@
-import { GET_USERS, GET_USERS, GET_PROJECTS, GET_EXPERIENCE, GET_FOLLOWERS, GET_FOLLOWING } from "../actions/actionTypes";
+import { GET_USERS, GET_USER, GET_PROJECTS, GET_EXPERIENCE, GET_FOLLOWERS, GET_FOLLOWING } from "../actions/actionTypes";
 
 const INITIAL_STATE = {}
 
