@@ -1,13 +1,14 @@
 import React from 'react';
 import Search from '../Search'
 import Users from '../Users'
+import { Grid } from 'react-bootstrap';
 
 const HomeContainer = () => {
   return (
-    <div>
+    <Grid>
       <Search />
       <Users />
-    </div>  
+    </Grid>  
   )
 }
 
