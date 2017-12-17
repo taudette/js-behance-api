@@ -11,8 +11,8 @@ const renderUser = (user) => {
   return (
     <Link to={"/user/"+user.id} key={user.id}>
       <li>
-        {user.display_name}
-        {img}   
+        { user.display_name }
+        { img }   
       </li>
     </Link>
   )

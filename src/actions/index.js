@@ -29,7 +29,6 @@ const recieveProjects = (data) => {
 }
 
 const recieveExperience = (data) => {
-  console.log(data)
   return {
     type: types.GET_EXPERIENCE,
     data: data.work_experience
@@ -37,7 +36,6 @@ const recieveExperience = (data) => {
 }
 
 const recieveFollowers = (data) => {
-  console.log(data)
   return {
     type: types.GET_FOLLOWERS,
     data: data.followers
@@ -45,7 +43,6 @@ const recieveFollowers = (data) => {
 }
 
 const recieveFollowing = (data) => {
-  console.log(data)
   return {
     type: types.GET_FOLLOWING,
     data: data.following

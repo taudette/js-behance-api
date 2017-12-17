@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getUser, getExperience, getFollowers, getFollowing, getProjects } from '../../actions'
+import UserProfileComponent from '../../components/UserProfile'
+import UserProjectsComponent from '../../components/UserProjects'
 
 class UserProfileContainer extends React.Component {
   componentDidMount() {
@@ -11,11 +13,12 @@ class UserProfileContainer extends React.Component {
     this.props.getFollowers(userId)
     this.props.getFollowing(userId)
   }
-  
+
   render() {
     return (
       <div>
-        profile
+        <UserProfileComponent user={this.props.user} experience={this.props.experience} followers={this.props.followers} following={this.props.following} />
+        <UserProjectsComponent projects={this.props.projects} />
       </div>
     )
   }
