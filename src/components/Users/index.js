@@ -10,12 +10,13 @@ const renderUser = (user, index) => {
   }else{
     img = <img src={stockPhoto} alt="" />
   }
+  
   return (
     <Col md={4} key={user.id}>
       <li>
         <Link to={"/user/"+user.id} >
-            <div>{ img }</div>
-            <div>{ user.display_name }</div>
+          <div>{ img }</div>
+          <div>{ user.display_name }</div>
         </Link>
       </li>
     </Col>
@@ -24,7 +25,6 @@ const renderUser = (user, index) => {
 
 const UsersComponent = (props) => {
   const users = props.users.length > 0
-
   return (
     <Panel>
       <Row>

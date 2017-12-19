@@ -11,9 +11,10 @@ const renderProject = (project) =>{
   }else{
     img = <img src={stockPhoto} alt="" />
   }
+
   return (
     <Col md={2} key={project.id}>
-      <ListGroupItem key={project.id}>
+      <ListGroupItem>
         <a href={project.url} target="_blank">
           <div>{img}</div> 
           <h2>{project.name}</h2>
@@ -26,13 +27,13 @@ const renderProject = (project) =>{
 
 //TODO: fix this
 const UserProjectsComponent = (props) => {
-  console.log(props)
   let projects
   if(props.projects && props.projects.length > 0){
     projects = <ListGroup>{ props.projects.map(project => renderProject(project)) }</ListGroup>
   }else{
     projects = <p>No projects are currently available</p>
   }
+
   return (
     <Row>
       <h1>Projects</h1>
