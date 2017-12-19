@@ -21,7 +21,6 @@ const recieveUser = (data) => {
 }
 
 const recieveProjects = (data) => {
-  console.log(data)
   return {
     type: types.GET_PROJECTS,
     data: data.projects
