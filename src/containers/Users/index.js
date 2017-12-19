@@ -4,7 +4,7 @@ import UsersComponent from '../../components/Users'
 
 const UsersContainer = (props) => {
   return (
-    <div>Users container
+    <div>
       { props.users &&
         <UsersComponent users={props.users} />
       }

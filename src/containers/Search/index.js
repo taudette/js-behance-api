@@ -5,7 +5,7 @@ import SearchComponent from '../../components/Search'
 
 const SearchContainer = (props) => {
   return (
-    <div>search container
+    <div>
       <SearchComponent search={props.search} />
     </div>
   )

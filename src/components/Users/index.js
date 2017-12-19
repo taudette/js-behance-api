@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Panel } from 'react-bootstrap';
 import stockPhoto from '../../images/behance.png';
 
 const renderUser = (user, index) => {
@@ -23,15 +23,22 @@ const renderUser = (user, index) => {
 }
 
 const UsersComponent = (props) => {
+  const users = props.users.length > 0
+
   return (
-    <Row>
-      <ul>
-        { props.users.map((user, index) => renderUser(user, index)) }
-      </ul>
-    </Row>
+    <Panel>
+      <Row>
+        { users && 
+        <ul>
+          { props.users.map((user, index) => renderUser(user, index)) }
+        </ul>
+        }
+        { !users &&
+          <p>Sorry try a different search!</p>
+        }
+      </Row>
+    </Panel>
   )
 }
 
 export default UsersComponent
-
-//two columns

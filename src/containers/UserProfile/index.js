@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getUser, getExperience, getFollowers, getFollowing, getProjects } from '../../actions'
 import UserProfileComponent from '../../components/UserProfile'
 import UserProjectsComponent from '../../components/UserProjects'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 class UserProfileContainer extends React.Component {
   componentDidMount() {
@@ -16,10 +17,16 @@ class UserProfileContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <UserProfileComponent user={this.props.user} experience={this.props.experience} followers={this.props.followers} following={this.props.following} />
-        <UserProjectsComponent projects={this.props.projects} />
-      </div>
+      <Grid>
+        <Row>
+          <Col md={4} >
+            <UserProfileComponent user={this.props.user} experience={this.props.experience} followers={this.props.followers} following={this.props.following} />
+          </Col>
+          <Col md={8} >
+            <UserProjectsComponent projects={this.props.projects} />
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
