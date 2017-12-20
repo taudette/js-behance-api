@@ -13,7 +13,6 @@ const renderFollower = (follower, index) => {
 }
 
 const FollowersComponent = (props) => {
-  console.log(props.followersIsHovering)
   let followers
   if (props.followers && props.followers.length > 0 && props.followersIsHovering) {
     followers = 

@@ -4,6 +4,7 @@ import './App.css';
 import { Provider } from 'react-redux'
 import Home from './containers/Home'
 import User from './containers/User'
+import Header from './containers/Header'
 import store, { history } from './store'
 import { ConnectedRouter } from 'react-router-redux'
 import { Route, Link } from 'react-router-dom'
@@ -14,12 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div className="App">
-            <header className="App-header">
-              <Link to="/">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">JS Behance API App</h1>
-              </Link>
-            </header>
+            <Header />
             <main>
               <Route exact path="/" component={Home} />
               <Route exact path="/user/:userName" component={User} />
@@ -32,3 +28,4 @@ class App extends Component {
 }
 
 export default App;
+

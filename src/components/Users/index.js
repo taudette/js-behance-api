@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Panel } from 'react-bootstrap';
+import { Col, Row, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 import stockPhoto from '../../images/behance.png';
 
 const renderUser = (user, index) => {
@@ -10,14 +10,15 @@ const renderUser = (user, index) => {
   } else {
     img = <img src={stockPhoto} alt="" />
   }
+
   return (
     <Col md={4} key={user.id}>
-      <li>
+      <ListGroupItem>
         <Link to={"/user/"+user.username} >
           <div>{ img }</div>
           <div>{ user.display_name }</div>
         </Link>
-      </li>
+      </ListGroupItem>
     </Col>
   )
 }
@@ -28,9 +29,9 @@ const UsersComponent = (props) => {
     <Panel>
       <Row>
         { users && 
-        <ul>
+        <ListGroup className="Users-list">
           { props.users.map((user, index) => renderUser(user, index)) }
-        </ul>
+        </ListGroup>
         }
         { !users &&
           <p>Sorry try a different search!</p>
