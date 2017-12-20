@@ -51,7 +51,7 @@ const UserProjectsComponent = (props) => {
 
   return (
     <Panel>
-      <h1>Projects</h1>
+      <h3>Projects</h3>
       <Row>
         { projects }  
       </Row>

@@ -11,9 +11,9 @@ class UserContainer extends React.Component {
     const userName = this.props.match.params.userName
     this.props.getUserInfo(userName)
     // this.props.getProjects(userName)
-    this.props.getExperience(userName)
-    // this.props.getFollowers(userName)
-    // this.props.getFollowing(userName)
+    //this.props.getExperience(userName)
+     //this.props.getFollowers(userName)
+    this.props.getFollowing(userName)
   }
 
   render() {

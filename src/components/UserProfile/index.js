@@ -1,14 +1,17 @@
 import React from 'react';
-import { Row, Col, Grid, ListGroup, ListGroupItem, Panel } from 'react-bootstrap'
+import { Row, Col, Grid, ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
+import FollowersCompont from '../Followers'
+import FollowingComponent from '../Following'
 import stockPhoto from '../../images/behance.png';
 
 const UserProfileComponent = (props) => {
   let img
-  if(props.user && props.user.images["100"]){
+  if (props.user && props.user.images["100"]) {
     img = <img src={props.user.images["100"]} alt="" />
-  }else{
+  } else {
     img = <img src={stockPhoto} alt="" />
   }
+
   return (
     <Panel className="Profile-panel">
       {props.user && 
@@ -21,8 +24,14 @@ const UserProfileComponent = (props) => {
           </Panel>
           { props.user.stats &&
             <ListGroup>
-              <ListGroupItem><strong>followers:</strong> {props.user.stats.followers}</ListGroupItem>
-              <ListGroupItem><strong>following:</strong>  {props.user.stats.following}</ListGroupItem>
+              <ListGroupItem>
+                <strong>followers:</strong> {props.user.stats.followers}
+                <FollowersCompont followers={props.followers} />
+              </ListGroupItem>
+              <ListGroupItem>
+                <strong>following:</strong> {props.user.stats.following}
+                <FollowingComponent following={props.following} />
+              </ListGroupItem>
               <ListGroupItem><strong>appreciations:</strong>  {props.user.stats.appreciations}</ListGroupItem>
               <ListGroupItem><strong>views:</strong>  {props.user.stats.views}</ListGroupItem>
               <ListGroupItem><strong>comments:</strong>  {props.user.stats.comments}</ListGroupItem>
