@@ -1,6 +1,6 @@
 import React from 'react';
-import Search from '../Search'
-import Users from '../Users'
+import Search from '../Search';
+import Users from '../Users';
 import { Grid } from 'react-bootstrap';
 
 const HomeContainer = () => {

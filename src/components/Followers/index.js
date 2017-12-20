@@ -6,7 +6,6 @@ const renderFollower = (follower, index) => {
       <a key={follower.id} href={follower.url} target="blank">
         <li>
           <small>{follower.username}</small>
-          <img src={follower.img["50"]} />
         </li>
       </a>
     )
@@ -14,12 +13,12 @@ const renderFollower = (follower, index) => {
 }
 
 const FollowersComponent = (props) => {
+  console.log(props.followersIsHovering)
   let followers
-  if (props.followers && props.followers.length > 0) {
+  if (props.followers && props.followers.length > 0 && props.followersIsHovering) {
     followers = 
       <ul>
         { props.followers.map((follower, index) => renderFollower(follower, index)) }
-        <li>...</li>
       </ul>
   } else {
     followers = null

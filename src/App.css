@@ -33,3 +33,8 @@
 .Profile-panel, .Experiences-panel {
   text-align: left;
 }
+
+.followers, .following {
+  border-bottom: 1px dotted black;
+  color: #006080;
+}

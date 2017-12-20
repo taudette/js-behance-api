@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../../actions'
-import SearchComponent from '../../components/Search'
+import { getUsers } from '../../actions';
+import SearchComponent from '../../components/Search';
 
 const SearchContainer = (props) => {
   return (

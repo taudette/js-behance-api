@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO: BE ABLE TO VIEW ALL FOLLOWERS
 const renderfollowing = (following, index) => {
   if (index < 5) {
     return (
@@ -15,11 +14,10 @@ const renderfollowing = (following, index) => {
 
 const FollowingComponent = (props) => {
   let followings
-  if (props.following && props.following.length > 0) {
+  if (props.following && props.following.length > 0 && props.followingIsHovering) {
     followings = 
       <ul>
         { props.following.map((following, index) => renderfollowing(following, index)) }
-        <li>...</li>
       </ul>
   } else {
     followings = null

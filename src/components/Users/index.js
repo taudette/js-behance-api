@@ -5,12 +5,11 @@ import stockPhoto from '../../images/behance.png';
 
 const renderUser = (user, index) => {
   let img
-  if(user.images["100"]){
+  if (user.images["100"]) {
     img = <img src={user.images["100"]} alt="" />
-  }else{
+  } else {
     img = <img src={stockPhoto} alt="" />
   }
-  console.log(user)
   return (
     <Col md={4} key={user.id}>
       <li>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UsersComponent from '../../components/Users'
+import UsersComponent from '../../components/Users';
 
 const UsersContainer = (props) => {
   return (

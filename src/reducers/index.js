@@ -1,6 +1,9 @@
-import { GET_USERS, GET_USER, GET_PROJECTS, GET_EXPERIENCE, GET_FOLLOWERS, GET_FOLLOWING } from "../actions/actionTypes";
+import { GET_USERS, GET_USER, GET_PROJECTS, GET_EXPERIENCE, GET_FOLLOWERS, GET_FOLLOWING, TOGGLE_FOLLOWING, TOGGLE_FOLLOWERS } from "../actions/actionTypes";
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = {
+  followingIsHovering: false,
+  followersIsHovering: false
+}
 
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -16,6 +19,10 @@ export default function reducer(state = INITIAL_STATE, action) {
     return Object.assign({}, state, {followers: action.data});
   case GET_FOLLOWING:
     return Object.assign({}, state, {following: action.data});
+  case TOGGLE_FOLLOWING:
+    return Object.assign({}, state, {followingIsHovering: !state.followingIsHovering});
+  case TOGGLE_FOLLOWERS:
+    return Object.assign({}, state, {followersIsHovering: !state.followersIsHovering});
   default:
     return state;
   }

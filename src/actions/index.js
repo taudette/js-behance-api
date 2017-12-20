@@ -5,6 +5,18 @@ const clientId = 'Xz1atLQVuTxixwJj6PtgchWdylAz8c1e'
 const URL = 'https://api.behance.net/v2'
 //grab userName from initial request to pass into the rest
 
+export const toggleFollowing = () => {
+  return {
+    type: types.TOGGLE_FOLLOWING
+  }
+}
+
+export const toggleFollowers = () => {
+  return {
+    type: types.TOGGLE_FOLLOWERS
+  }
+}
+
 const recieveUsers = (data) => {
   return {
     type: types.GET_USERS,
@@ -87,7 +99,6 @@ export const getUser = (userName) => {
 }
 
 export const getProjects = (userName) => {
-  console.log(userName)
   const url = `${URL}/projects?q=${userName}&client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
@@ -125,7 +136,6 @@ export const getExperience = (userName) => {
 
 export const getFollowers = (userName) => {
   const url = `${URL}/users/${userName}/followers?client_id=${clientId}`
-  console.log(url)
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {

@@ -11,8 +11,9 @@ const UserProfileComponent = (props) => {
   } else {
     img = <img src={stockPhoto} alt="" />
   }
-
+console.log(props)
   return (
+ 
     <Panel className="Profile-panel">
       {props.user && 
         <div>
@@ -24,14 +25,15 @@ const UserProfileComponent = (props) => {
           </Panel>
           { props.user.stats &&
             <ListGroup>
-              <ListGroupItem>
-                <strong>followers:</strong> {props.user.stats.followers}
-                <FollowersCompont followers={props.followers} />
+              <ListGroupItem onMouseEnter={props.toggleFollowers} onMouseLeave={props.toggleFollowers}>
+                <span className="followers"><strong>followers:</strong> {props.user.stats.followers}</span>
+                <FollowersCompont followers={props.followers} followersIsHovering={props.followersIsHovering} />
               </ListGroupItem>
-              <ListGroupItem>
-                <strong>following:</strong> {props.user.stats.following}
-                <FollowingComponent following={props.following} />
-              </ListGroupItem>
+          
+              <ListGroupItem onMouseEnter={props.toggleFollowing} onMouseLeave={props.toggleFollowing}>
+                <span className="following"><strong>following:</strong> {props.user.stats.following}</span>
+                <FollowingComponent following={props.following} followingIsHovering={props.followingIsHovering} />
+          </ListGroupItem>
               <ListGroupItem><strong>appreciations:</strong>  {props.user.stats.appreciations}</ListGroupItem>
               <ListGroupItem><strong>views:</strong>  {props.user.stats.views}</ListGroupItem>
               <ListGroupItem><strong>comments:</strong>  {props.user.stats.comments}</ListGroupItem>
