@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux'
 import Home from './containers/Home'
-import UserProfile from './containers/UserProfile'
+import User from './containers/User'
 import store, { history } from './store'
 import { ConnectedRouter } from 'react-router-redux'
 import { Route, Link } from 'react-router-dom'
@@ -22,7 +22,7 @@ class App extends Component {
             </header>
             <main>
               <Route exact path="/" component={Home} />
-              <Route exact path="/user/:userName" component={UserProfile} />
+              <Route exact path="/user/:userName" component={User} />
             </main>
           </div>
         </ConnectedRouter>

@@ -30,6 +30,6 @@
 }
 
 /* User Profile */
-.Profile-panel {
+.Profile-panel, .Experiences-panel {
   text-align: left;
 }

@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUser, getExperience, getFollowers, getFollowing, getProjects } from '../../actions'
-import UserProfileComponent from '../../components/UserProfile'
-import UserProjectsComponent from '../../components/UserProjects'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { getUser, getExperience, getFollowers, getFollowing, getProjects } from '../../actions';
+import UserProfileComponent from '../../components/UserProfile';
+import UserProjectsComponent from '../../components/UserProjects';
+import UserExperienceComponent from '../../components/UserExperience';
+import { Grid, Row, Col } from 'react-bootstrap';
 
-class UserProfileContainer extends React.Component {
+class UserContainer extends React.Component {
   componentDidMount() {
     const userName = this.props.match.params.userName
     this.props.getUserInfo(userName)
-    this.props.getProjects(userName)
+    // this.props.getProjects(userName)
     this.props.getExperience(userName)
-    this.props.getFollowers(userName)
-    this.props.getFollowing(userName)
+    // this.props.getFollowers(userName)
+    // this.props.getFollowing(userName)
   }
 
   render() {
@@ -20,7 +21,8 @@ class UserProfileContainer extends React.Component {
       <Grid>
         <Row>
           <Col md={4} >
-            <UserProfileComponent user={this.props.user} experience={this.props.experience} followers={this.props.followers} following={this.props.following} />
+            <UserProfileComponent user={this.props.user} followers={this.props.followers} following={this.props.following} />
+            <UserExperienceComponent experience={this.props.experience} />
           </Col>
           <Col md={8} >
             <UserProjectsComponent projects={this.props.projects} />
@@ -51,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)

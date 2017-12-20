@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import stockPhoto from '../../images/behance.png';
-import { Col, Row, ListGroup, ListGroupItem, } from 'react-bootstrap';
+import { Col, Row, ListGroup, ListGroupItem, Panel, } from 'react-bootstrap';
 
 //TODO: error handling
 const renderProject = (project) =>{
   let img
-  if(project.covers["202"]){
+  if (project.covers["202"]) {
     img = <img src={project.covers["202"]} alt="" />
-  }else{
+  } else {
     img = <img src={stockPhoto} alt="" />
   }
 
   let fieldList
-  if(project.fields && project.fields.length){
+  if (project.fields && project.fields.length) {
    fieldList = project.fields.map((field, index) => {
       return (
         <li key={index}>
@@ -21,7 +21,7 @@ const renderProject = (project) =>{
         </li>
       )
     })
-  }else{
+  } else {
     fieldList = null
   }
 
@@ -43,17 +43,19 @@ const renderProject = (project) =>{
 //TODO: fix this
 const UserProjectsComponent = (props) => {
   let projects
-  if(props.projects && props.projects.length > 0){
+  if (props.projects && props.projects.length > 0) {
     projects = <ListGroup>{ props.projects.map(project => renderProject(project)) }</ListGroup>
-  }else{
+  } else {
     projects = <p>No projects are currently available</p>
   }
 
   return (
-    <Row>
+    <Panel>
       <h1>Projects</h1>
-      { projects }  
-    </Row>
+      <Row>
+        { projects }  
+      </Row>
+    </Panel>
   )
 }
 
