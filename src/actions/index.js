@@ -3,7 +3,7 @@ import fetchJsonp from 'fetch-jsonp' //use to avoid cors issues
 
 const clientId = 'Xz1atLQVuTxixwJj6PtgchWdylAz8c1e'
 const URL = 'https://api.behance.net/v2'
-//grab userId from initial request to pass into the rest
+//grab userName from initial request to pass into the rest
 
 const recieveUsers = (data) => {
   return {
@@ -13,7 +13,6 @@ const recieveUsers = (data) => {
 }
 
 const recieveUser = (data) => {
-
   return {
     type: types.GET_USER,
     data: data.user
@@ -69,8 +68,8 @@ export const getUsers = (search) => {
   }
 }
 
-export const getUser = (userId) => {
-  const url = `${URL}/users/${userId}?client_id=${clientId}`
+export const getUser = (userName) => {
+  const url = `${URL}/users/${userName}?client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -87,8 +86,9 @@ export const getUser = (userId) => {
   }
 }
 
-export const getProjects = (userId) => {
-  const url = `${URL}/projects?q=${userId}&client_id=${clientId}`
+export const getProjects = (userName) => {
+  console.log(userName)
+  const url = `${URL}/projects?q=${userName}&client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -105,8 +105,8 @@ export const getProjects = (userId) => {
   }
 }
 
-export const getExperience = (userId) => {
-  const url = `${URL}/users/${userId}/work_experience?client_id=${clientId}`
+export const getExperience = (userName) => {
+  const url = `${URL}/users/${userName}/work_experience?client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {
@@ -123,8 +123,8 @@ export const getExperience = (userId) => {
   }
 }
 
-export const getFollowers = (userId) => {
-  const url = `${URL}/users/${userId}/followers?client_id=${clientId}`
+export const getFollowers = (userName) => {
+  const url = `${URL}/users/${userName}/followers?client_id=${clientId}`
   console.log(url)
   return (dispatch) => {
     fetchJsonp(url)
@@ -142,8 +142,8 @@ export const getFollowers = (userId) => {
   }
 }
 
-export const getFollowing = (userId) => {
-  const url = `${URL}/users/${userId}/following?client_id=${clientId}`
+export const getFollowing = (userName) => {
+  const url = `${URL}/users/${userName}/following?client_id=${clientId}`
   return (dispatch) => {
     fetchJsonp(url)
       .then((resp) => {

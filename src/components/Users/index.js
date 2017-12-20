@@ -10,11 +10,11 @@ const renderUser = (user, index) => {
   }else{
     img = <img src={stockPhoto} alt="" />
   }
-  
+  console.log(user)
   return (
     <Col md={4} key={user.id}>
       <li>
-        <Link to={"/user/"+user.id} >
+        <Link to={"/user/"+user.username} >
           <div>{ img }</div>
           <div>{ user.display_name }</div>
         </Link>

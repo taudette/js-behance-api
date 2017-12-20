@@ -22,7 +22,7 @@ class App extends Component {
             </header>
             <main>
               <Route exact path="/" component={Home} />
-              <Route exact path="/user/:userId" component={UserProfile} />
+              <Route exact path="/user/:userName" component={UserProfile} />
             </main>
           </div>
         </ConnectedRouter>

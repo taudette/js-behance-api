@@ -6,19 +6,34 @@ import { Col, Row, ListGroup, ListGroupItem, } from 'react-bootstrap';
 //TODO: error handling
 const renderProject = (project) =>{
   let img
-  if(project.covers["115"]){
-    img = <img src={project.covers["115"]} alt="" />
+  if(project.covers["202"]){
+    img = <img src={project.covers["202"]} alt="" />
   }else{
     img = <img src={stockPhoto} alt="" />
   }
 
+  let fieldList
+  if(project.fields && project.fields.length){
+   fieldList = project.fields.map((field, index) => {
+      return (
+        <li key={index}>
+          {field}
+        </li>
+      )
+    })
+  }else{
+    fieldList = null
+  }
+
   return (
-    <Col md={2} key={project.id}>
+    <Col md={6} key={project.id}>
       <ListGroupItem>
         <a href={project.url} target="_blank">
           <div>{img}</div> 
-          <h2>{project.name}</h2>
-          <p>{project.fields[0]}</p>      
+          { project.name && <h3>{project.name}</h3> }
+          <ul>{fieldList}</ul>  
+          { project.stats.views && <p><strong>views: </strong> {project.stats.views}</p> }
+          { project.stats.appreciations && <p><strong>appreciations: </strong> {project.stats.appreciations}</p> }          
         </a>
       </ListGroupItem>
     </Col>

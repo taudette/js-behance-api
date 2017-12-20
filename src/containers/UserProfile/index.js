@@ -7,12 +7,12 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 class UserProfileContainer extends React.Component {
   componentDidMount() {
-    const userId = this.props.match.params.userId
-    this.props.getUserInfo(userId)
-    this.props.getProjects(userId)
-    this.props.getExperience(userId)
-    this.props.getFollowers(userId)
-    this.props.getFollowing(userId)
+    const userName = this.props.match.params.userName
+    this.props.getUserInfo(userName)
+    this.props.getProjects(userName)
+    this.props.getExperience(userName)
+    this.props.getFollowers(userName)
+    this.props.getFollowing(userName)
   }
 
   render() {
@@ -43,11 +43,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserInfo: (userId) => dispatch(getUser(userId)),
-    getProjects: (userId) => dispatch(getProjects(userId)),
-    getExperience: (userId) => dispatch(getExperience(userId)),
-    getFollowers: (userId) => dispatch(getFollowers(userId)),
-    getFollowing: (userId) => dispatch(getFollowing(userId))
+    getUserInfo: (userName) => dispatch(getUser(userName)),
+    getProjects: (userName) => dispatch(getProjects(userName)),
+    getExperience: (userName) => dispatch(getExperience(userName)),
+    getFollowers: (userName) => dispatch(getFollowers(userName)),
+    getFollowing: (userName) => dispatch(getFollowing(userName))
   }
 }
 
