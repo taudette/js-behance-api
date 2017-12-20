@@ -40,5 +40,18 @@
 }
 
 .Users-list {
-  list-style: none
+  list-style: none;
+}
+
+.Project-info {
+  text-align: left;
+}
+
+.Project-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.Search {
+  padding-bottom: 25px;
 }

@@ -31,9 +31,11 @@ const renderProject = (project) =>{
         <a href={project.url} target="_blank">
           <div>{img}</div> 
           { project.name && <h3>{project.name}</h3> }
-          <ul>{fieldList}</ul>  
-          { project.stats.views && <p><strong>views: </strong> {project.stats.views}</p> }
-          { project.stats.appreciations && <p><strong>appreciations: </strong> {project.stats.appreciations}</p> }          
+          <span className="Project-info">
+            <ul>{fieldList}</ul>  
+            { project.stats.views && <p><strong>views: </strong> {project.stats.views}</p> }
+            { project.stats.appreciations && <p><strong>appreciations: </strong> {project.stats.appreciations}</p> }          
+          </span>
         </a>
       </ListGroupItem>
     </Col>

@@ -1,9 +1,8 @@
 import * as types from './actionTypes';
-import fetchJsonp from 'fetch-jsonp' //use to avoid cors issues
+import fetchJsonp from 'fetch-jsonp' 
 
 const clientId = 'Xz1atLQVuTxixwJj6PtgchWdylAz8c1e'
 const URL = 'https://api.behance.net/v2'
-//grab userName from initial request to pass into the rest
 
 export const toggleFollowing = () => {
   return {
@@ -59,8 +58,6 @@ const recieveFollowing = (data) => {
   }
 }
 
-
-//add loaders
 export const getUsers = (search) => {
   const url = `${URL}/users?client_id=${clientId}&q=${search}`
   return (dispatch) => {
