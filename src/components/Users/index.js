@@ -24,7 +24,8 @@ const renderUser = (user, index) => {
 }
 
 const UsersComponent = (props) => {
-  const users = props.users.length > 0
+  const users = props.users && props.users.length > 0
+  
   return (
     <Panel>
       <Row>
