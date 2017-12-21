@@ -61,7 +61,6 @@ const recieveFollowing = (data) => {
 export const getUsers = (search) => {
   const url = `${URL}/users?client_id=${clientId}&q=${search}`
   return (dispatch) => {
-    dispatch(recieveFollowers('tyedsy'))
     fetchJsonp(url)
       .then((resp) => {
         if (!resp.ok) {
