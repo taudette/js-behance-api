@@ -30,6 +30,7 @@ You provide unit and/or end-to-end tests for your code.
 
 ## Instructions
 - git clone https://github.com/taudette/js-behance-api.git
+- cd js-behance-api/
 - yarn install
 - yarn start (runs app in development mode at http://localhost:3000/)
 - yarn test (runs tests)
