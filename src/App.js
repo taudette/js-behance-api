@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux'
 import Home from './containers/Home'
@@ -7,7 +6,7 @@ import User from './containers/User'
 import Header from './containers/Header'
 import store, { history } from './store'
 import { ConnectedRouter } from 'react-router-redux'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   render() {

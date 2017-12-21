@@ -1,9 +1,6 @@
 import { GET_USERS, GET_USER, GET_PROJECTS, GET_EXPERIENCE, GET_FOLLOWERS, GET_FOLLOWING, TOGGLE_FOLLOWING, TOGGLE_FOLLOWERS } from "../actions/actionTypes";
 
-const INITIAL_STATE = {
-  followingIsHovering: false,
-  followersIsHovering: false
-}
+const INITIAL_STATE = {}
 
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {

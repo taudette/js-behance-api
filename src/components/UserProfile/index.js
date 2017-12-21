@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Grid, ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
 import FollowersCompont from '../Followers'
 import FollowingComponent from '../Following'
 import stockPhoto from '../../images/behance.png';

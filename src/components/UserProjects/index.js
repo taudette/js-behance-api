@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import stockPhoto from '../../images/behance.png';
 import { Col, Row, ListGroup, ListGroupItem, Panel, } from 'react-bootstrap';
 
@@ -42,7 +41,6 @@ const renderProject = (project) =>{
   )
 }
 
-//TODO: fix this
 const UserProjectsComponent = (props) => {
   let projects
   if (props.projects && props.projects.length > 0) {

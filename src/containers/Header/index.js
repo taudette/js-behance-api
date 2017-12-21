@@ -1,7 +1,6 @@
 import React from 'react'
-import { Jumbotron, Button } from 'react-bootstrap'
+import { Jumbotron } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
 
 const HeaderContainer = (props) => {
   return (
