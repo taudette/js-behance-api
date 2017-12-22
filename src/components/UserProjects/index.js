@@ -26,7 +26,7 @@ const renderProject = (project) =>{
 
   return (
     <Col md={6} key={project.id}>
-      <ListGroupItem>
+      <ListGroupItem className="Project">
         <a href={project.url} target="_blank">
           <div>{img}</div> 
           { project.name && <h3>{project.name}</h3> }
