@@ -2,7 +2,6 @@ import React from 'react';
 import stockPhoto from '../../images/behance.png';
 import { Col, Row, ListGroup, ListGroupItem, Panel, } from 'react-bootstrap';
 
-//TODO: error handling
 const renderProject = (project) =>{
   let img
   if (project.covers["202"]) {
